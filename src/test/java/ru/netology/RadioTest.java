@@ -46,6 +46,22 @@ public class RadioTest {
         radio.setCurrentStation(currentStation);
         assertEquals(9, radio.getCurrentStation());
     }
+
+    @Test
+    public void shouldNextStationOutLimit() {
+        radio.setCurrentStation(9);
+        int currentStation = radio.nextStation();
+        radio.setCurrentStation(currentStation);
+        assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+    public void shouldPrevStationOutLimit() {
+        radio.setCurrentStation(0);
+        int currentStation = radio.prevStation();
+        radio.setCurrentStation(currentStation);
+        assertEquals(9, radio.getCurrentStation());
+    }
     @Test
     public void setCurrentVolume() {
         int expected = 8;
