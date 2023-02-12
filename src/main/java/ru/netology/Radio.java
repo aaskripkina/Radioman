@@ -11,7 +11,7 @@ public class Radio {
 
     public Radio(int numberStation) {
         this.numberStation = numberStation;
-        this.maxStation = numberStation - 0;
+        this.maxStation = numberStation;
     }
 
     public Radio(int currentStation, int currentVolume, int numberStation, int maxStation) {
@@ -52,7 +52,6 @@ public class Radio {
         return minVolume;
     }
 
-    // make getter and setter
     public int getCurrentStation() {
         return currentStation;
     }
@@ -81,7 +80,6 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-    // station control
     public int nextStation() {
         currentStation = currentStation < maxStation ? currentStation + 1 : minStation;
         return currentStation;
