@@ -107,7 +107,7 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeOutLimit() {
-        Radio radio = new Radio(5, 0, 9,9);
+        Radio radio = new Radio(5, 0,9);
         radio.setCurrentVolume(110);
         int currentVolume = radio.increaseVolume();
         radio.setCurrentVolume(currentVolume);
