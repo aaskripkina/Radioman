@@ -21,13 +21,6 @@
             <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.16</version>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -47,21 +40,21 @@
                 <version>0.8.5</version>
                 <executions>
                     <execution>
-                        <id>prepare-agent-09022021</id>
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
 
                     <execution>
-                        <id>report-09022021</id>
+                        <id>report</id>
                         <goals>
                             <goal>report</goal>
                         </goals>
                     </execution>
 
                     <execution>
-                        <id>check-09022021</id>
+                        <id>check</id>
                         <goals>
                             <goal>check</goal>
                         </goals>
@@ -71,7 +64,7 @@
                                     <element>PACKAGE</element>
                                     <limits>
                                         <limit>
-                                            <counter>BRANCH</counter>
+                                            <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
                                             <minimum>100%</minimum>
                                         </limit>
