@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Radio.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Radioman</a> &gt; <a href="index.source.html" class="el_package">ru.netology</a> &gt; <span class="el_source">Radio.java</span></div><h1>Radio.java</h1><pre class="source lang-java linenums">package ru.netology;
+
+public class Radio {
+    public int currentStation;
+    public int currentVolume;
+<span class="nc" id="L6">    public final int minStation = 0;</span>
+<span class="nc" id="L7">    public int numberStation = 9;</span>
+<span class="nc" id="L8">    public int maxStation = 9;</span>
+<span class="nc" id="L9">    public final int maxVolume = 10;</span>
+<span class="nc" id="L10">    public final int minVolume = 0;</span>
+
+<span class="nc" id="L12">    public Radio(int numberStation) {</span>
+<span class="nc" id="L13">        this.numberStation = numberStation;</span>
+<span class="nc" id="L14">        this.maxStation = numberStation - 0;</span>
+<span class="nc" id="L15">    }</span>
+
+<span class="nc" id="L17">    public Radio(int currentStation, int currentVolume, int numberStation, int maxStation) {</span>
+<span class="nc" id="L18">        this.currentStation = currentStation;</span>
+<span class="nc" id="L19">        this.currentVolume = currentVolume;</span>
+<span class="nc" id="L20">        this.numberStation = numberStation;</span>
+<span class="nc" id="L21">        this.maxStation = maxStation;</span>
+<span class="nc" id="L22">    }</span>
+
+<span class="nc" id="L24">    public Radio() {</span>
+<span class="nc" id="L25">    }</span>
+
+    public int getMinStation() {
+<span class="nc" id="L28">        return minStation;</span>
+    }
+
+    public int getNumberStation() {
+<span class="nc" id="L32">        return numberStation;</span>
+    }
+
+    public void setNumberStation(int numberStation) {
+<span class="nc" id="L36">        this.numberStation = numberStation;</span>
+<span class="nc" id="L37">    }</span>
+
+    public int getMaxStation() {
+<span class="nc" id="L40">        return maxStation;</span>
+    }
+
+    public void setMaxStation(int maxStation) {
+<span class="nc" id="L44">        this.maxStation = maxStation;</span>
+<span class="nc" id="L45">    }</span>
+
+    public int getMaxVolume() {
+<span class="nc" id="L48">        return maxVolume;</span>
+    }
+
+    public int getMinVolume() {
+<span class="nc" id="L52">        return minVolume;</span>
+    }
+
+    // make getter and setter
+    public int getCurrentStation() {
+<span class="nc" id="L57">        return currentStation;</span>
+    }
+
+    public void setCurrentStation(int currentStation) {
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (currentStation &gt; maxStation) {</span>
+<span class="nc" id="L62">            return;</span>
+        }
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (currentStation &lt; minStation) {</span>
+<span class="nc" id="L65">            return;</span>
+        }
+<span class="nc" id="L67">        this.currentStation = currentStation;</span>
+<span class="nc" id="L68">    }</span>
+
+    public int getCurrentVolume() {
+<span class="nc" id="L71">        return currentVolume;</span>
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if (currentVolume &gt; maxVolume) {</span>
+<span class="nc" id="L76">            return;</span>
+        }
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (currentVolume &lt; minVolume) {</span>
+<span class="nc" id="L79">            return;</span>
+        }
+<span class="nc" id="L81">        this.currentVolume = currentVolume;</span>
+<span class="nc" id="L82">    }</span>
+
+    // station control
+    public int nextStation() {
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        currentStation = currentStation &lt; maxStation ? currentStation + 1 : minStation;</span>
+<span class="nc" id="L87">        return currentStation;</span>
+    }
+
+    public int prevStation() {
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        currentStation = currentStation &gt; minStation ? currentStation - 1 : maxStation;</span>
+<span class="nc" id="L92">        return currentStation;</span>
+    }
+
+    public int increaseVolume() {
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        if (currentVolume &lt; maxVolume) {</span>
+<span class="nc" id="L97">            currentVolume++;</span>
+        }
+<span class="nc" id="L99">        return currentVolume;</span>
+    }
+
+    public int decreaseVolume() {
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        if (currentVolume &gt; minVolume) {</span>
+<span class="nc" id="L104">            currentVolume--;</span>
+        }
+<span class="nc" id="L106">        return currentVolume;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
