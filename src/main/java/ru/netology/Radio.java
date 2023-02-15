@@ -12,8 +12,6 @@ public class Radio {
     public Radio(int station, int volume) {
         setCurrentStation(station);
         setCurrentVolume(volume);
-
-
     }
 
     public Radio (int station, int volume, int maxStation) {
@@ -22,8 +20,6 @@ public class Radio {
         setCurrentVolume(volume);
 
     }
-
-
 
     public int getCurrentStation() {
         return currentStation;
