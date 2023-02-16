@@ -180,12 +180,18 @@ public class RadioTest {
 
     @Test
     public void shouldSetMaxStation() {
-        Radio radio = new Radio (8, 50, 5);
+        Radio radio = new Radio (5);
+        Radio radio2 = new Radio ();
 
         int expected = 5;
         int actual = radio.getMaxStation();
 
         assertEquals(expected, actual);
 
+        expected = 9;
+        actual = radio2.getMaxStation();
+
+        assertEquals(expected, actual);
     }
+
 }
