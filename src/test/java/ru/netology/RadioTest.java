@@ -8,7 +8,8 @@ public class RadioTest {
 
     @Test
     public void setCurrentStation() {
-        Radio radio = new Radio(7, 7);
+        Radio radio = new Radio();
+        radio.setCurrentStation(7);
         int expected = 7;
         radio.setCurrentStation(expected);
         assertEquals(expected, radio.getCurrentStation());
@@ -22,26 +23,30 @@ public class RadioTest {
 
     @Test
     public void setCurrentStationOutLimit() {
-        Radio radio = new Radio(15, 7);
+        Radio radio = new Radio();
+        radio.setCurrentStation(16);
         assertEquals(9, radio.getCurrentStation());
     }
 
     @Test
     public void setCurrentVolume() {
-        Radio radio = new Radio(7, 9);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(9);
         int expected = 9;
         assertEquals(expected, radio.getCurrentVolume());
     }
 
     @Test
     public void setCurrentVolumeOutLimit() {
-        Radio radio = new Radio(7, 110);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(110);
         assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
     public void shouldNextStationInLimit() {
-        Radio radio = new Radio(8, 7);
+        Radio radio = new Radio();
+        radio.setCurrentStation(8);
         int currentStation = radio.nextStation();
         radio.setCurrentStation(currentStation);
         assertEquals(9, radio.getCurrentStation());
@@ -49,7 +54,8 @@ public class RadioTest {
 
     @Test
     public void shouldPrevStationInLimit() {
-        Radio radio = new Radio(9, 9);
+        Radio radio = new Radio();
+        radio.setCurrentStation(9);
         int currentStation = radio.prevStation();
         radio.setCurrentStation(currentStation);
         assertEquals(8, radio.getCurrentStation());
@@ -57,7 +63,8 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationMax() {
-        Radio radio = new Radio(9, 7);
+        Radio radio = new Radio();
+        radio.setCurrentStation(9);
         int currentStation = radio.nextStation();
         radio.setCurrentStation(currentStation);
         assertEquals(0, radio.getCurrentStation());
@@ -65,7 +72,8 @@ public class RadioTest {
 
     @Test
     public void shouldPrevStationMin() {
-        Radio radio = new Radio(0, 7);
+        Radio radio = new Radio();
+        radio.setCurrentStation(0);
         int currentStation = radio.prevStation();
         radio.setCurrentStation(currentStation);
         assertEquals(9, radio.getCurrentStation());
@@ -73,7 +81,8 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeInLimit() {
-        Radio radio = new Radio(7, 7);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(7);
         int currentVolume = radio.increaseVolume();
         radio.setCurrentVolume(currentVolume);
         assertEquals(8, radio.getCurrentVolume());
@@ -81,7 +90,8 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeInLimit() {
-        Radio radio = new Radio(7, 5);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(5);
         int currentVolume = radio.decreaseVolume();
         radio.setCurrentVolume(currentVolume);
         assertEquals(4, radio.getCurrentVolume());
@@ -89,7 +99,8 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeMax() {
-        Radio radio = new Radio(7, 100);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(100);
         int currentVolume = radio.increaseVolume();
         radio.setCurrentVolume(currentVolume);
         assertEquals(100, radio.getCurrentVolume());
@@ -97,7 +108,8 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeMin() {
-        Radio radio = new Radio(7, 0);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(0);
         int currentVolume = radio.decreaseVolume();
         radio.setCurrentVolume(currentVolume);
         assertEquals(0, radio.getCurrentVolume());
@@ -105,7 +117,8 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationOutLimit() {
-        Radio radio = new Radio(16, 7);
+        Radio radio = new Radio();
+        radio.setCurrentStation(16);
         int currentStation = radio.nextStation();
         radio.setCurrentStation(currentStation);
         assertEquals(0, radio.getCurrentStation());
@@ -113,7 +126,8 @@ public class RadioTest {
 
     @Test
     public void shouldPrevStationOutLimit() {
-        Radio radio = new Radio(-1, 7);
+        Radio radio = new Radio();
+        radio.setCurrentStation(-1);
         int currentStation = radio.prevStation();
         radio.setCurrentStation(currentStation);
         assertEquals(9, radio.getCurrentStation());
@@ -121,7 +135,8 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeOutLimit() {
-        Radio radio = new Radio(7, 110);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(110);
         int currentVolume = radio.increaseVolume();
         radio.setCurrentVolume(currentVolume);
         assertEquals(100, radio.getCurrentVolume());
@@ -129,7 +144,8 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeOutLimit() {
-        Radio radio = new Radio(7, -1);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(-1);
         int currentVolume = radio.decreaseVolume();
         radio.setCurrentVolume(currentVolume);
         assertEquals(0, radio.getCurrentVolume());
@@ -137,7 +153,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetToMinStation() {
-        Radio radio = new Radio(9, 8);
+        Radio radio = new Radio();
 
 
         int expected = 0;
@@ -149,7 +165,7 @@ public class RadioTest {
     }
     @Test
     public void shouldSetToMinVolume() {
-        Radio radio = new Radio(9, 8);
+        Radio radio = new Radio();
 
 
         int expected = 0;
@@ -159,7 +175,7 @@ public class RadioTest {
     }
     @Test
     public void shouldSetToMaxVolume() {
-        Radio radio = new Radio(9, 7);
+        Radio radio = new Radio();
 
 
         int expected = 100;
@@ -169,7 +185,7 @@ public class RadioTest {
     }
     @Test
     public void shouldSetToMaxStation() {
-        Radio radio = new Radio(9, 7);
+        Radio radio = new Radio();
 
 
         int expected = 9;
@@ -183,7 +199,7 @@ public class RadioTest {
         Radio radio = new Radio (5);
         Radio radio2 = new Radio ();
 
-        int expected = 5;
+        int expected = 4;
         int actual = radio.getMaxStation();
 
         assertEquals(expected, actual);
